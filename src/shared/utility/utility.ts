@@ -2,13 +2,13 @@ const rgbArr = [
   '130,170,255,',
   '128,203,196,',
   '130,170,255,',
+  '238,255,255,',
   '137,221,255,',
   '195,232,141,',
   '199,146,234,',
   '240,113,120,',
   '247,140,108,',
   '238,255,255,',
-  '103,110,149,',
   '255,203,107,'
 ];
 
@@ -44,4 +44,22 @@ export const createMonth = (maxDays: number, dayIter: number) => {
 export const handleClearLocal = () => {
   if (localStorage.getItem('numbersArr')) localStorage.removeItem('numbersArr');
   window.location.reload();
+};
+
+export const calculatePercentage = (maxP: number, numberString: string) => {
+  const res = parseInt(numberString, 10) / 100 / (maxP / 100);
+
+  return Math.round(res * 1e2) / 1e2;
+};
+
+export const createRangeAverage = (numbersArr: string[], maxRange: number) => {
+  const slice = numbersArr.slice(0, maxRange);
+  let rangeAverage = slice
+    .map(Number)
+    .reduce((previousValue, currentValue) => previousValue + currentValue);
+
+  rangeAverage = rangeAverage / 100 / (maxRange / 100);
+  rangeAverage = Math.round(rangeAverage * 1e2) / 1e2;
+
+  return rangeAverage;
 };

@@ -32,7 +32,7 @@ export const Button = styled.button({
   cursor: 'pointer',
   fontSize: '1rem',
   fontWeight: 500,
-  letterSpacing: '0.24em',
+  letterSpacing: '0.2em',
   margin: '3rem auto',
   outline: 'none',
   padding: '1rem 1.125rem 1rem 1.75rem',

@@ -30,7 +30,7 @@ export const Scale = styled.div(({ maxRange }: ScaleProps) => ({
   flexDirection: 'column',
   fontSize: '0.5rem',
   height: '1.375rem',
-  fontWeight: 'bold',
+  fontWeight: 700,
   letterSpacing: '0.048em',
   margin: '0 auto',
   textTransform: 'uppercase',
@@ -50,6 +50,6 @@ export const Scale = styled.div(({ maxRange }: ScaleProps) => ({
 }));
 
 export const SubValue = styled.div({
-  fontWeight: 'bold',
+  fontWeight: 700,
   marginTop: '0.25rem'
 });
