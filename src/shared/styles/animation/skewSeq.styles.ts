@@ -45,3 +45,13 @@ export const skewSeq2 = keyframes`
     transform: skew(-45deg, -180deg) rotate3d(1, 1, 1, -360deg);
   }
 `;
+
+export const opacityFade = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;

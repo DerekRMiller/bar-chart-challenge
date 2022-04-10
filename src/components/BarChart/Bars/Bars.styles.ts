@@ -33,9 +33,15 @@ export const Bar = styled.div(({ formatNumber, index, maxRange, rgb, show }: Bar
     height: show ? `${formatNumber}%` : 0,
     justifyContent: 'center',
     margin: '0 0.125rem',
-    transition: 'height 0.5s ease, color 0.5s ease, width 0.06125s ease',
-    transitionDelay: `${index * 20}ms`,
+    transition: `height 0.5s ease ${index * 20}ms, color 0.15s ease ${index * 20}ms,
+    width 0.06125s ease, background-color 0.125s ease`,
     width: `${100 / maxRange}%`,
+
+    '&:hover': {
+      background: `rgba(${rgb}1)`,
+      color: themeColors.appBackground,
+      transitionDelay: '0 !important'
+    },
 
     [maxWidth(1)]: {
       fontSize: '.75rem'

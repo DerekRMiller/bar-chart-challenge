@@ -16,7 +16,7 @@ export const YAxis = styled.div({
 export const Scale = styled.div({
   color: `${themeColors.white}`,
   fontSize: '0.5rem',
-  fontWeight: 'bold',
+  fontWeight: 700,
   letterSpacing: '0.048em',
   lineHeight: '0.125em',
   position: 'relative',
