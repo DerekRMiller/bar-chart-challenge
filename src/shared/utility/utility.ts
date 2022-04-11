@@ -26,15 +26,18 @@ export const createArr = (maxRange: number, value: number) => {
   return arr;
 };
 
-export const createMonth = (maxDays: number, dayIter: number) => {
+export const createMonth = (maxDays: number, dayIter: number, abbreviate = true) => {
   const month: { [day: string]: number } = {};
-  const week = ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+  const week = [
+    ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+    ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+  ];
   let dayCount = 0;
 
   for (let i = 0; i < maxDays; i += dayIter) {
     dayCount += 1;
     dayCount = i % 7 === 0 ? 0 : dayCount;
-    const day = `${week[dayCount]}-${i + 1}`;
+    const day = `${abbreviate ? week[0][dayCount] : week[1][dayCount]}-${i + 1}`;
     month[day] = i + 1;
   }
 

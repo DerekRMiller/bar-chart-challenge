@@ -11,12 +11,12 @@ type HeaderProps = {
 };
 
 const Header = ({ index, maxRange, rgb }: HeaderProps) => {
-  const getDay = createMonth(maxRange, 1);
+  const getDay = createMonth(maxRange, 1, false);
   const dayArr = Object.keys(getDay)[index].split('-');
 
   return (
     <S.Header rgb={rgb}>
-      <div>{dayArr[0]}.</div>
+      <div>{dayArr[0]}</div>
       <div>&#58;&#58;&#58;</div>
       <div>January, {[dayArr[1]]}</div>
     </S.Header>
