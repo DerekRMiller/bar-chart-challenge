@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 
 import * as S from './Footer.styles';
-
 import Logo from '../Logo/Logo';
 
 const Footer = () => (

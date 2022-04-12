@@ -47,6 +47,8 @@ export const createMonth = (maxDays: number, dayIter: number, abbreviate = true)
 export const handleClearLocal = () => {
   if (localStorage.getItem('numbersArr')) localStorage.removeItem('numbersArr');
   window.location.reload();
+
+  return true;
 };
 
 export const calculatePercentage = (maxP: number, numberString: string) => {
@@ -65,4 +67,15 @@ export const createRangeAverage = (numbersArr: string[], maxRange: number) => {
   rangeAverage = Math.round(rangeAverage * 1e2) / 1e2;
 
   return rangeAverage;
+};
+
+export const getLocalStorageNumArr = () => {
+  return localStorage.getItem('numbersArr');
+};
+
+export const setLocalStorageNumArr = (arr) => {
+  if (arr.length > 2) {
+    localStorage.setItem('numbersArr', JSON.stringify(arr));
+  }
+  return true;
 };

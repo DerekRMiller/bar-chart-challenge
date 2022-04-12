@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { skewSeq1, skewSeq2 } from '../../shared/styles/animation/skewSeq.styles';
 import themeColors from '../../shared/styles/color/themeColors.styles';
 import { maxHeight } from '../../shared/styles/layout/mediaQueries.styles';
-
 import DotsComponent from '../Dots/Dots';
 
 const sharedStyles = {

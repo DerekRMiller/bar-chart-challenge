@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
-
-import * as S from './App.styles';
+import React, { useEffect, useContext } from 'react';
 
 import Nav from '../Nav/Nav';
 import Header from '../Header/Header';
@@ -9,41 +7,51 @@ import Button from '../Button/Button';
 import Loading from '../Loading/Loading';
 import BarChart from '../BarChart/BarChart';
 import Error from '../Error/Error';
-
-import { createColorRGB } from '../../shared/utility/utility';
-import useFetch from '../../shared/hooks/useFetch.hook';
+import {
+  createColorRGB,
+  getLocalStorageNumArr,
+  setLocalStorageNumArr
+} from '../../shared/utility/utility';
+import GetData from '../../services/GetData';
+import { setIsMounted, setShow, setNumbersArr, setRgb } from '../../state/App/App.reducer';
+import AppContext from '../../state/App/AppContext';
+import * as S from './App.styles';
 
 const App = () => {
-  const [isMounted, setIsMounted] = useState(true);
-  const [show, setShow] = useState(true);
-  const { getLocalStorage, numbersArr, refetch, responseError } = useFetch(
+  const { state, dispatch } = useContext(AppContext);
+  const { refetchData, responseError } = GetData(
     'https://www.random.org/integers/?num=200&min=1&max=100&col=1&base=10&format=plain&rnd=new'
   );
-
-  const memoCreateColorRGB = useMemo(() => createColorRGB(numbersArr), [numbersArr]);
+  const checkLocalStorage = getLocalStorageNumArr();
 
   useEffect(() => {
-    if (getLocalStorage === null) {
-      setShow(false);
-      setIsMounted(false);
-      refetch();
+    if (checkLocalStorage === null) {
+      dispatch(setIsMounted(false));
+      dispatch(setShow(false));
+      refetchData();
 
-      if (numbersArr) {
-        setTimeout(() => {
-          setShow(true);
-          setIsMounted(true);
-        }, 1100);
-      }
+      setTimeout(() => {
+        dispatch(setIsMounted(true));
+        dispatch(setShow(true));
+      }, 1100);
+    } else {
+      dispatch(setNumbersArr(JSON.parse(checkLocalStorage)));
     }
   }, []);
 
+  useEffect(() => {
+    const memoCreateColorRGB = createColorRGB(state.numbersArr);
+    dispatch(setRgb(memoCreateColorRGB));
+    setLocalStorageNumArr(state.numbersArr);
+  }, [dispatch, state.numbersArr]);
+
   const handleClick = () => {
-    setShow(false);
+    dispatch(setShow(false));
 
     setTimeout(() => {
-      refetch();
+      refetchData();
       setTimeout(() => {
-        setShow(true);
+        dispatch(setShow(true));
       }, 1100);
     }, 1100);
   };
@@ -52,23 +60,13 @@ const App = () => {
     <S.App className="app">
       <Nav />
       <Header />
-      {isMounted === false && <Loading />}
+      {state.isMounted === false && <Loading />}
       {responseError ? (
-        <Error numbersArr={numbersArr} />
+        <Error />
       ) : (
         <>
-          <BarChart
-            show={show}
-            isMounted={isMounted}
-            numbersArr={numbersArr}
-            rgb={memoCreateColorRGB}
-          />
-          <Button
-            isMounted={isMounted}
-            show={show}
-            onClick={handleClick}
-            rgb={memoCreateColorRGB}
-          />
+          <BarChart />
+          <Button onClick={handleClick} />
         </>
       )}
       <Footer />
