@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 
 import * as S from './YAxis.styles';
-
 import { createArr } from '../../../shared/utility/utility';
 
 type YAxisProps = {

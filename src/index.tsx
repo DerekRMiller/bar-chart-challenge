@@ -2,14 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Global } from '@emotion/react';
 
-import globalDef from './shared/styles/global/globalDef.styles';
-
 import App from './components/App/App';
+import AppProvider from './state/App/AppProvider';
+import globalDef from './shared/styles/global/globalDef.styles';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Global styles={globalDef} />
-    <App />
+    <AppProvider>
+      <Global styles={globalDef} />
+      <App />
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

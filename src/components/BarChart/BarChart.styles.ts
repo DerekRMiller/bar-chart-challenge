@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 import themeColors from '../../shared/styles/color/themeColors.styles';
 import { maxHeight } from '../../shared/styles/layout/mediaQueries.styles';
-
 import LoadingComponent from '../Loading/Loading';
 
 type BarChartProps = {

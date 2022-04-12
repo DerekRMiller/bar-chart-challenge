@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 import DetailStyleProps from '../Detail.styles.types';
-
 import { ReactComponent as TrendingDown } from '../../../../shared/images/trending-down.svg';
 import { ReactComponent as TrendingUp } from '../../../../shared/images/trending-up.svg';
 import themeColors from '../../../../shared/styles/color/themeColors.styles';

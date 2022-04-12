@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { ReactComponent as Neutral } from '../../../../shared/images/trending-neutral.svg';
 import { ReactComponent as Group } from '../../../../shared/images/group.svg';
-
 import { createRangeAverage } from '../../../../shared/utility/utility';
-
+import AppContext from '../../../../state/App/AppContext';
 import * as S from './MetricBar.styles';
 
 type DetailProps = {
   maxRange: number;
   number: string;
-  numbersArr: string[];
-  rgb: string;
 };
 
 const trending = (formatNumber: number) => {
@@ -33,12 +30,13 @@ const trending = (formatNumber: number) => {
   return [icon, message];
 };
 
-const MetricBar = ({ maxRange, numbersArr, number, rgb }: DetailProps) => {
+const MetricBar = ({ maxRange, number }: DetailProps) => {
+  const { state } = useContext(AppContext);
   const formatNumber = parseInt(number.toString(), 10) < 10 ? 0 + number : number;
-  const rangeAverage = createRangeAverage(numbersArr, maxRange);
+  const rangeAverage = createRangeAverage(state.numbersArr, maxRange);
 
   return (
-    <S.MetricBar rgb={rgb}>
+    <S.MetricBar rgb={state.rgb}>
       <div>
         {trending(parseInt(formatNumber.toString(), 10)).map((item, i) => (
           <div key={i} className={i === 0 ? `icon-container` : `${item}`}>
@@ -55,7 +53,7 @@ const MetricBar = ({ maxRange, numbersArr, number, rgb }: DetailProps) => {
         </div>
       </div>
       <div>
-        <S.Pie rgb={rgb} rangeAverage={rangeAverage}>
+        <S.Pie rgb={state.rgb} rangeAverage={rangeAverage}>
           <div />
         </S.Pie>
         <div>RA: {rangeAverage}%</div>
