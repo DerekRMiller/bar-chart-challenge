@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 import DetailStyleProps from './Detail.styles.types';
-
 import themeColors from '../../../shared/styles/color/themeColors.styles';
 import { opacityFade } from '../../../shared/styles/animation/skewSeq.styles';
 import { maxHeight } from '../../../shared/styles/layout/mediaQueries.styles';

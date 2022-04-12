@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 import DetailStyleProps from '../Detail.styles.types';
-
 import themeColors from '../../../../shared/styles/color/themeColors.styles';
 
 export const Header = styled.div(({ rgb }: DetailStyleProps) => {
