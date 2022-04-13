@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from './Header/Header';
 import MetricBar from './MetricBar/MetricBar';
-import { calculatePercentage } from '../../../shared/utility/utility';
+import { calculatePercentage } from '../../shared/utility/utility';
 import * as S from './Detail.styles';
 
 type DetailProps = {

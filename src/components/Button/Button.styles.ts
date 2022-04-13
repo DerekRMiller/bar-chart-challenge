@@ -31,7 +31,7 @@ export const Button = styled.button({
   color: `${themeColors.white}`,
   cursor: 'pointer',
   fontSize: '1rem',
-  fontWeight: 500,
+  fontWeight: 400,
   letterSpacing: '0.2em',
   margin: '3rem auto',
   outline: 'none',

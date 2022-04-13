@@ -8,11 +8,11 @@ type ButtonProps = {
 };
 
 const Button = ({ onClick }: ButtonProps) => {
-  const { state } = useContext(AppContext);
+  const { appState } = useContext(AppContext);
   const [buttonHover, setButtonHover] = useState(false);
   const colorDefault = ['0,0,0,0', '255,255,255,.15'];
   const buttonColor = (color: number) =>
-    `rgba(${buttonHover ? `${state.rgb}1` : colorDefault[color]})`;
+    `rgba(${buttonHover ? `${appState.rgb}1` : colorDefault[color]})`;
   const overHandler = () => {
     setButtonHover(true);
   };
@@ -21,7 +21,7 @@ const Button = ({ onClick }: ButtonProps) => {
   };
 
   return (
-    <S.ButtonContainer isMounted={state.isMounted}>
+    <S.ButtonContainer isMounted={appState.isMounted}>
       <S.Button
         onClick={onClick}
         style={{ background: buttonColor(0), borderColor: buttonColor(1) }}
@@ -31,8 +31,8 @@ const Button = ({ onClick }: ButtonProps) => {
         onBlur={outHandler}
         type="button"
       >
-        <S.ButtonText show={state.show}>:::&emsp;QUERY SNAPSHOT&emsp;:::</S.ButtonText>
-        {!state.show && <S.Dots />}
+        <S.ButtonText show={appState.show}>:::&emsp;QUERY SNAPSHOT&emsp;:::</S.ButtonText>
+        {!appState.show && <S.Dots />}
       </S.Button>
     </S.ButtonContainer>
   );

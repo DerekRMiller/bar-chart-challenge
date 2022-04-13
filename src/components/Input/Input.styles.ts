@@ -36,6 +36,7 @@ export const Input = styled.input({
   borderBottom: `1px solid ${themeColors.whiteAlpha15}`,
   color: `${themeColors.white}`,
   fontSize: '.75rem',
+  letterSpacing: '0.048em',
   outline: 'none',
   paddingBottom: '0.375em',
   textAlign: 'right',
@@ -51,6 +52,7 @@ export const Input = styled.input({
   },
 
   '&::placeholder, &::-webkit-input-placeholder, &:-moz-placeholder': {
+    letterSpacing: '0.048em',
     textAlign: 'right'
   },
 

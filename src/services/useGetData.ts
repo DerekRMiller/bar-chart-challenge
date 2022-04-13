@@ -1,11 +1,11 @@
 import { useState, useCallback, useContext } from 'react';
 
 import AppContext from '../state/App/AppContext';
-import { setNumbersArr } from '../state/App/App.reducer';
+import { setNumbersArr } from '../state/App/AppReducer';
 
-const GetData = (url: string) => {
+const useGetData = (url: string) => {
   const [responseError, setResponseError] = useState(false);
-  const { dispatch } = useContext(AppContext);
+  const { appDispatch } = useContext(AppContext);
 
   const refetchData = useCallback(async () => {
     if (localStorage.getItem('numbersArr')) localStorage.removeItem('numbersArr');
@@ -15,13 +15,13 @@ const GetData = (url: string) => {
       if (getResponse.ok === false) {
         throw new Error(getResponse.statusText);
       }
-      await dispatch(setNumbersArr(stringResponse.split('\n')));
+      await appDispatch(setNumbersArr(stringResponse.split('\n')));
     } catch (error) {
       setResponseError(true);
     }
-  }, [url, dispatch]);
+  }, [url, appDispatch]);
 
   return { refetchData, responseError };
 };
 
-export default GetData;
+export default useGetData;

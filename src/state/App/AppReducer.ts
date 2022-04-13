@@ -1,4 +1,4 @@
-import { IApp } from './App.state';
+import { IApp } from './AppState';
 import AppActions, {
   ActionType,
   ISetIsMounted,
@@ -7,7 +7,7 @@ import AppActions, {
   ISetRgb
 } from './AppActions';
 
-export const reducer = (state: IApp, action: AppActions): IApp => {
+export const appReducer = (state: IApp, action: AppActions): IApp => {
   switch (action.type) {
     case ActionType.SetIsMounted:
       return { ...state, isMounted: action.payload };

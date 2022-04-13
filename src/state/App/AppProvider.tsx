@@ -1,14 +1,14 @@
 import React, { useReducer, useMemo } from 'react';
 
-import { initialAppState } from './App.state';
-import { reducer } from './App.reducer';
+import { initialAppState } from './AppState';
+import { appReducer } from './AppReducer';
 import AppContext from './AppContext';
 
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialAppState);
+  const [appState, appDispatch] = useReducer(appReducer, initialAppState);
 
   return (
-    <AppContext.Provider value={useMemo(() => ({ state, dispatch }), [state])}>
+    <AppContext.Provider value={useMemo(() => ({ appState, appDispatch }), [appState])}>
       {children}
     </AppContext.Provider>
   );

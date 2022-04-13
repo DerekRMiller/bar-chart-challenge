@@ -13,10 +13,11 @@ const typographyDef = css`
   h1 {
     font-size: 1rem;
     font-weight: 900;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.48em;
     line-height: 1.5em;
     margin: 3rem auto 6rem;
     transition: font-size 0.125s ease, top 0.125s ease, right 0.125s ease;
+    text-transform: lowercase;
 
     .h1_sub {
       font-size: 4rem;
@@ -24,13 +25,14 @@ const typographyDef = css`
       letter-spacing: 0.36em;
       line-height: 1.75em;
       transition: font-size 0.125s ease, top 0.125s ease, right 0.125s ease;
+      text-transform: uppercase;
     }
   }
 
   h2 {
     font-size: 1.5rem;
     font-weight: 800;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.48em;
     line-height: 1.25em;
     margin: 1rem auto;
   }
@@ -58,7 +60,7 @@ const typographyDef = css`
   // 800
   ${maxHeightArr[0]} {
     h1 {
-      font-size: 0.625rem;
+      font-size: 0.75rem;
       margin: 2.6rem auto;
       position: fixed;
       right: 1.5rem;

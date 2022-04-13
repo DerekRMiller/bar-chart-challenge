@@ -9,10 +9,10 @@ export type DotsProps = {
 };
 
 const Dots = ({ className = 'dots', dotSize = 0.375 }: DotsProps) => {
-  const { state } = useContext(AppContext);
+  const { appState } = useContext(AppContext);
 
   return (
-    <S.Dots dotSize={dotSize} className={className} show={state.show}>
+    <S.Dots dotSize={dotSize} className={className} show={appState.show}>
       <span />
       <span />
       <span />
