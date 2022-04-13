@@ -31,7 +31,7 @@ export const Button = styled.button({
   color: `${themeColors.white}`,
   cursor: 'pointer',
   fontSize: '1rem',
-  fontWeight: 400,
+  fontWeight: 600,
   letterSpacing: '0.2em',
   margin: '3rem auto',
   outline: 'none',
@@ -51,8 +51,13 @@ export const Button = styled.button({
 });
 
 export const ButtonText = styled.span(({ show }: ButtonTextProps) => ({
+  display: 'flex',
   opacity: show ? 1 : 0,
-  transition: 'opacity 0.125s ease'
+  transition: 'opacity 0.125s ease',
+
+  '> span': {
+    lineHeight: '1.07em'
+  }
 }));
 
 export const Dots = styled(DotsComponent)({

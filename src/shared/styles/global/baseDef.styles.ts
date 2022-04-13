@@ -9,7 +9,7 @@ const baseDef = css`
 
   html,
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   html,
@@ -24,8 +24,8 @@ const baseDef = css`
 
   body,
   button {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-      'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }
 
   body {
@@ -35,12 +35,26 @@ const baseDef = css`
   }
 
   code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
   }
 
   #root {
     display: flex;
     flex-direction: row;
+  }
+
+  @media screen and (max-width: 1200px), screen and (max-height: 1000px) {
+    html,
+    body {
+      font-size: 17px;
+    }
+  }
+
+  @media screen and (max-width: 1000px), screen and (max-height: 800px) {
+    html,
+    body {
+      font-size: 16px;
+    }
   }
 `;
 

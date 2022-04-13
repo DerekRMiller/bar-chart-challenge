@@ -9,7 +9,7 @@ type LogoProps = {
 export const LogoContainer = styled.span({
   color: `${themeColors.white}`,
   fontSize: ' 0.625rem',
-  fontWeight: 400,
+  fontWeight: 600,
   letterSpacing: '0.16em',
   textTransform: 'uppercase'
 });
@@ -49,6 +49,5 @@ export const LogoPipe = styled.span({
 });
 
 export const LogoSub = styled.span({
-  fontWeight: '500',
   letterSpacing: '0.68em'
 });

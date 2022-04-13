@@ -30,6 +30,7 @@ export const Bar = styled.div(({ formatNumber, index, maxRange, rgb, show }: Bar
     color: show ? colorFormat : `${themeColors.whiteAlpha0}`,
     display: 'flex',
     fontSize: '1rem',
+    fontWeight: 600,
     height: show ? `${formatNumber}%` : 0,
     justifyContent: 'center',
     letterSpacing: '0.048em',

@@ -41,7 +41,7 @@ export const ButtonLink = styled.button(({ rgb }: ButtonLink) => ({
   },
 
   // 1921
-  [minWidth(2)]: {
+  [minWidth(1)]: {
     fontSize: '.625rem'
   }
 }));
