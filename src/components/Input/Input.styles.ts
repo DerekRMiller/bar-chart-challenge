@@ -56,7 +56,7 @@ export const Input = styled.input({
     textAlign: 'right'
   },
 
-  [minWidth(2)]: {
+  [minWidth(1)]: {
     fontSize: '1rem'
   }
 });

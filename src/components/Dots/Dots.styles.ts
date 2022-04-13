@@ -25,7 +25,7 @@ export const Dots = styled.span(({ dotSize, show }: DotProps) => ({
     background: `${themeColors.white}`,
     borderRadius: `${dotSize}rem`,
     height: `${dotSize}rem`,
-    margin: `0 ${dotSize * 3}rem`,
+    margin: `0 ${dotSize * 4}rem`,
     opacity: 0,
     position: 'relative',
     width: `${dotSize}rem`,

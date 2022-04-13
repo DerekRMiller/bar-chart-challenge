@@ -49,6 +49,6 @@ export const LogoPipe = styled.span({
 });
 
 export const LogoSub = styled.span({
-  fontWeight: '500',
+  fontWeight: 600,
   letterSpacing: '0.68em'
 });

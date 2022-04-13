@@ -7,14 +7,22 @@ const typographyDef = css`
   h1,
   h2 {
     color: ${themeColors.white};
-    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  .h1_sub,
+  h2 {
+    letter-spacing: 0.36em;
+  }
+
+  h1,
+  p {
+    line-height: 1.5em;
   }
 
   h1 {
     font-size: 1rem;
-    font-weight: 900;
     letter-spacing: 0.48em;
-    line-height: 1.5em;
     margin: 3rem auto 6rem;
     transition: font-size 0.125s ease, top 0.125s ease, right 0.125s ease;
     text-transform: lowercase;
@@ -22,7 +30,6 @@ const typographyDef = css`
     .h1_sub {
       font-size: 4rem;
       font-weight: 100;
-      letter-spacing: 0.36em;
       line-height: 1.75em;
       transition: font-size 0.125s ease, top 0.125s ease, right 0.125s ease;
       text-transform: uppercase;
@@ -31,15 +38,13 @@ const typographyDef = css`
 
   h2 {
     font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: 0.48em;
     line-height: 1.25em;
     margin: 1rem auto;
+    text-transform: uppercase;
   }
 
   p {
     font-weight: 400;
-    line-height: 1.5em;
   }
 
   a {

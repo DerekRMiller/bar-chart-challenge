@@ -31,7 +31,9 @@ const Button = ({ onClick }: ButtonProps) => {
         onBlur={outHandler}
         type="button"
       >
-        <S.ButtonText show={appState.show}>:::&emsp;QUERY SNAPSHOT&emsp;:::</S.ButtonText>
+        <S.ButtonText show={appState.show}>
+          &#58;&#58;&#58;&emsp;QUERY SNAPSHOT&emsp;&#58;&#58;&#58;
+        </S.ButtonText>
         {!appState.show && <S.Dots />}
       </S.Button>
     </S.ButtonContainer>
