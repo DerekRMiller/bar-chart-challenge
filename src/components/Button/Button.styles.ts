@@ -52,7 +52,11 @@ export const Button = styled.button({
 
 export const ButtonText = styled.span(({ show }: ButtonTextProps) => ({
   opacity: show ? 1 : 0,
-  transition: 'opacity 0.125s ease'
+  transition: 'opacity 0.125s ease',
+
+  '> span': {
+    lineHeight: '1.07em'
+  }
 }));
 
 export const Dots = styled(DotsComponent)({

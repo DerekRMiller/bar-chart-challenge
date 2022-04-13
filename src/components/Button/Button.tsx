@@ -32,7 +32,7 @@ const Button = ({ onClick }: ButtonProps) => {
         type="button"
       >
         <S.ButtonText show={appState.show}>
-          &#58;&#58;&#58;&emsp;QUERY SNAPSHOT&emsp;&#58;&#58;&#58;
+          <span>&#58;&#58;&#58;</span>&emsp;QUERY SNAPSHOT&emsp;<span>&#58;&#58;&#58;</span>
         </S.ButtonText>
         {!appState.show && <S.Dots />}
       </S.Button>
