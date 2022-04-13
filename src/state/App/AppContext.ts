@@ -1,13 +1,13 @@
 import React, { createContext } from 'react';
 import AppActions from './AppActions';
-import { IApp, initialAppState } from './App.state';
+import { IApp, initialAppState } from './AppState';
 
 const AppContext = createContext<{
-  state: IApp;
-  dispatch: React.Dispatch<AppActions>;
+  appState: IApp;
+  appDispatch: React.Dispatch<AppActions>;
 }>({
-  state: initialAppState,
-  dispatch: () => undefined
+  appState: initialAppState,
+  appDispatch: () => undefined
 });
 
 export default AppContext;

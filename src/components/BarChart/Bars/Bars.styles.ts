@@ -32,6 +32,7 @@ export const Bar = styled.div(({ formatNumber, index, maxRange, rgb, show }: Bar
     fontSize: '1rem',
     height: show ? `${formatNumber}%` : 0,
     justifyContent: 'center',
+    letterSpacing: '0.048em',
     margin: '0 0.125rem',
     transition: `height 0.5s ease ${index * 20}ms, color 0.15s ease ${index * 20}ms,
     width 0.06125s ease, background-color 0.125s ease`,

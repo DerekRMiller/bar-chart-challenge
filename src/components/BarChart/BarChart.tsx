@@ -10,7 +10,7 @@ import AppContext from '../../state/App/AppContext';
 import * as S from './BarChart.styles';
 
 const BarChart = () => {
-  const { state } = useContext(AppContext);
+  const { appState } = useContext(AppContext);
   const [maxRange, setMaxRange] = useState(31);
   const [inputError, setIsInputError] = useState('');
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -30,8 +30,8 @@ const BarChart = () => {
   };
 
   return (
-    <S.BarChart isMounted={state.isMounted}>
-      {!state.show && state.isMounted && <S.Loading className="loading" showDots={false} />}
+    <S.BarChart isMounted={appState.isMounted}>
+      {!appState.show && appState.isMounted && <S.Loading className="loading" showDots={false} />}
       <S.Content>
         <YAxis maxRange={100} value={10} />
         <Bars maxRange={maxRange} />

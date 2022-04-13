@@ -32,13 +32,23 @@ export const Logo = styled.span(({ showIcon }: LogoProps) => ({
     width: '1.5rem'
   },
 
-  '&:after': { transform: 'skew(45deg)' }
+  '&:before': {
+    background: themeColors.whiteAlpha12
+  },
+
+  '&:after': {
+    borderWidth: '2px',
+    left: '1.94rem',
+    top: '1.71rem',
+    transform: 'skew(45deg)'
+  }
 }));
 
 export const LogoPipe = styled.span({
-  color: `${themeColors.whiteAlpha15}`
+  color: `${themeColors.whiteAlpha25}`
 });
 
 export const LogoSub = styled.span({
-  letterSpacing: '0.48em'
+  fontWeight: '500',
+  letterSpacing: '0.68em'
 });

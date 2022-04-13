@@ -12,46 +12,45 @@ import {
   getLocalStorageNumArr,
   setLocalStorageNumArr
 } from '../../shared/utility/utility';
-import GetData from '../../services/GetData';
-import { setIsMounted, setShow, setNumbersArr, setRgb } from '../../state/App/App.reducer';
+import useGetData from '../../services/useGetData';
+import { setIsMounted, setShow, setNumbersArr, setRgb } from '../../state/App/AppReducer';
 import AppContext from '../../state/App/AppContext';
 import * as S from './App.styles';
 
 const App = () => {
-  const { state, dispatch } = useContext(AppContext);
-  const { refetchData, responseError } = GetData(
-    'https://www.random.org/integers/?num=200&min=1&max=100&col=1&base=10&format=plain&rnd=new'
+  const { appState, appDispatch } = useContext(AppContext);
+  const { refetchData, responseError } = useGetData(
+    'https://www.random.org/integers/?num=31&min=1&max=100&col=1&base=10&format=plain&rnd=new'
   );
   const checkLocalStorage = getLocalStorageNumArr();
 
   useEffect(() => {
     if (checkLocalStorage === null) {
-      dispatch(setIsMounted(false));
-      dispatch(setShow(false));
+      appDispatch(setIsMounted(false));
+      appDispatch(setShow(false));
       refetchData();
 
       setTimeout(() => {
-        dispatch(setIsMounted(true));
-        dispatch(setShow(true));
+        appDispatch(setIsMounted(true));
+        appDispatch(setShow(true));
       }, 1100);
     } else {
-      dispatch(setNumbersArr(JSON.parse(checkLocalStorage)));
+      appDispatch(setNumbersArr(JSON.parse(checkLocalStorage)));
     }
   }, []);
 
   useEffect(() => {
-    const memoCreateColorRGB = createColorRGB(state.numbersArr);
-    dispatch(setRgb(memoCreateColorRGB));
-    setLocalStorageNumArr(state.numbersArr);
-  }, [dispatch, state.numbersArr]);
+    const getColorRGB = createColorRGB(appState.numbersArr);
+    appDispatch(setRgb(getColorRGB));
+    setLocalStorageNumArr(appState.numbersArr);
+  }, [appDispatch, appState.numbersArr]);
 
   const handleClick = () => {
-    dispatch(setShow(false));
-
+    appDispatch(setShow(false));
     setTimeout(() => {
       refetchData();
       setTimeout(() => {
-        dispatch(setShow(true));
+        appDispatch(setShow(true));
       }, 1100);
     }, 1100);
   };
@@ -60,7 +59,7 @@ const App = () => {
     <S.App className="app">
       <Nav />
       <Header />
-      {state.isMounted === false && <Loading />}
+      {appState.isMounted === false && <Loading />}
       {responseError ? (
         <Error />
       ) : (

@@ -8,11 +8,11 @@ type ButtonLinkProps = {
 };
 
 const ButtonLink = ({ onClick }: ButtonLinkProps) => {
-  const { state } = useContext(AppContext);
+  const { appState } = useContext(AppContext);
 
   return (
-    <S.ButtonLinkContainer isMounted={state.isMounted}>
-      <S.ButtonLink onClick={onClick} rgb={state.rgb} type="button">
+    <S.ButtonLinkContainer isMounted={appState.isMounted}>
+      <S.ButtonLink onClick={onClick} rgb={appState.rgb} type="button">
         <span>CLEAR</span>
       </S.ButtonLink>
     </S.ButtonLinkContainer>
