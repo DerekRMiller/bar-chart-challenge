@@ -17,7 +17,6 @@ export const Header = styled.div(({ rgb }: DetailStyleProps) => {
       fontWeight: 900,
       left: 0,
       letterSpacing: '0.096em',
-      lineHeight: '1.07em',
       margin: '0 auto',
       position: 'absolute',
       right: 0

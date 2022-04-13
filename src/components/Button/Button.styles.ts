@@ -51,6 +51,7 @@ export const Button = styled.button({
 });
 
 export const ButtonText = styled.span(({ show }: ButtonTextProps) => ({
+  display: 'flex',
   opacity: show ? 1 : 0,
   transition: 'opacity 0.125s ease',
 
