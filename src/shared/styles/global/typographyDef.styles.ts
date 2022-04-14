@@ -98,7 +98,7 @@ const typographyDef = css`
       position: fixed;
       right: 1.5rem;
       text-align: right;
-      top: -0.8rem;
+      top: -0.6rem;
       width: 19.8rem;
       z-index: 99;
 
