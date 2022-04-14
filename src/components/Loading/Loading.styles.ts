@@ -14,6 +14,7 @@ export const Loading = styled.h2({
   position: 'absolute',
   top: 'calc(50% + 4.25rem)',
   transform: 'translateY(-50%)',
+  zIndex: 100,
 
   ...sharedStyles,
 
