@@ -79,3 +79,5 @@ export const setLocalStorageNumArr = (arr) => {
   }
   return true;
 };
+
+export const year = () => new Date().getFullYear();

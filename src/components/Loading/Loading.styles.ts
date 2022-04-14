@@ -14,6 +14,7 @@ export const Loading = styled.h2({
   position: 'absolute',
   top: 'calc(50% + 4.25rem)',
   transform: 'translateY(-50%)',
+  zIndex: 100,
 
   ...sharedStyles,
 
@@ -41,7 +42,7 @@ export const Loading = styled.h2({
   },
 
   // 1000
-  [maxHeight(1)]: {
+  [maxHeight(2)]: {
     fontSize: '1.125rem',
     top: 'calc(50% + 3.4375rem)',
 

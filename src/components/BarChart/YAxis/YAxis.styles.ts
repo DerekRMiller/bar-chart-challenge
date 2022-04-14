@@ -41,6 +41,11 @@ export const Scale = styled.div({
     width: ' 0.25rem'
   },
 
+  // 1201
+  [minWidth(1)]: {
+    fontSize: ' 0.5625rem'
+  },
+
   // 1921
   [minWidth(2)]: {
     fontSize: ' 0.625rem'

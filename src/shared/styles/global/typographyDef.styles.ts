@@ -1,9 +1,29 @@
 import { css } from '@emotion/react';
 
 import themeColors from '../color/themeColors.styles';
-import { maxHeightArr, maxHeightMinWidth, maxHeightMaxWidth } from '../layout/mediaQueries.styles';
+import {
+  maxHeightMinWidth,
+  maxHeightMaxWidth,
+  maxHeight,
+  maxHeightOrMaxWidth
+} from '../layout/mediaQueries.styles';
 
 const typographyDef = css`
+  html,
+  body {
+    font-size: 18px;
+  }
+
+  body,
+  button {
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  code {
+    font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+  }
+
   h1,
   h2 {
     color: ${themeColors.white};
@@ -52,7 +72,7 @@ const typographyDef = css`
   }
 
   // 1000
-  ${maxHeightArr[1]} {
+  ${maxHeight(2)} {
     h1 {
       font-size: 0.75rem;
       margin: 3rem auto 4rem;
@@ -63,44 +83,60 @@ const typographyDef = css`
   }
 
   // 800
-  ${maxHeightArr[0]} {
+  ${maxHeight(1)} {
     h1 {
       font-size: 0.75rem;
       margin: 2.6rem auto;
       position: fixed;
       right: 1.5rem;
       text-align: right;
-      top: -0.44rem;
+      top: -0.6rem;
       width: 19.8rem;
       z-index: 99;
 
       .h1_sub {
         font-size: 2rem;
         font-weight: 200;
-        line-height: 1.25em;
+        line-height: 1.4em;
       }
     }
   }
 
   // 800 1001
-  ${maxHeightMinWidth(0, 0)} {
+  ${maxHeightMinWidth(1, 0)} {
     .h1_sub {
       left: 0;
       position: fixed;
       right: 0;
       text-align: center;
-      top: 1.34rem;
+      top: 1.2rem;
     }
   }
 
   //800 1000
-  ${maxHeightMaxWidth(0, 0)} {
+  ${maxHeightMaxWidth(1, 0)} {
     h1 {
       left: auto;
       right: 1rem;
       text-align: right;
-      top: -1.44rem;
+      top: -1.8rem;
       width: auto;
+    }
+  }
+
+  // 1000 1200
+  ${maxHeightOrMaxWidth(2, 1)} {
+    html,
+    body {
+      font-size: 17px;
+    }
+  }
+
+  // 600 1000
+  ${maxHeightOrMaxWidth(1, 0)} {
+    html,
+    body {
+      font-size: 16px;
     }
   }
 `;

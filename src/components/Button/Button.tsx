@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 
-import AppContext from '../../state/App/AppContext';
+import useButton from './useButton';
 import * as S from './Button.styles';
 
 type ButtonProps = {
@@ -8,17 +8,7 @@ type ButtonProps = {
 };
 
 const Button = ({ onClick }: ButtonProps) => {
-  const { appState } = useContext(AppContext);
-  const [buttonHover, setButtonHover] = useState(false);
-  const colorDefault = ['0,0,0,0', '255,255,255,.15'];
-  const buttonColor = (color: number) =>
-    `rgba(${buttonHover ? `${appState.rgb}1` : colorDefault[color]})`;
-  const overHandler = () => {
-    setButtonHover(true);
-  };
-  const outHandler = () => {
-    setButtonHover(false);
-  };
+  const { appState, buttonColor, overHandler, outHandler } = useButton();
 
   return (
     <S.ButtonContainer isMounted={appState.isMounted}>
