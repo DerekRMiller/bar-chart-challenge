@@ -71,14 +71,6 @@ const typographyDef = css`
     color: ${themeColors.blue};
   }
 
-  // 1000 1200
-  ${maxHeightOrMaxWidth(2, 1)} {
-    html,
-    body {
-      font-size: 17px;
-    }
-  }
-
   // 1000
   ${maxHeight(2)} {
     h1 {
@@ -132,8 +124,16 @@ const typographyDef = css`
     }
   }
 
+  // 1000 1200
+  ${maxHeightOrMaxWidth(2, 1)} {
+    html,
+    body {
+      font-size: 17px;
+    }
+  }
+
   // 600 1000
-  ${maxHeightOrMaxWidth(0, 0)} {
+  ${maxHeightOrMaxWidth(1, 0)} {
     html,
     body {
       font-size: 16px;
