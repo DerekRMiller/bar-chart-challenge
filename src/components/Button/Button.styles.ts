@@ -44,7 +44,7 @@ export const Button = styled.button({
   },
 
   // 1000
-  [maxHeight(1)]: {
+  [maxHeight(2)]: {
     fontSize: '0.875rem',
     margin: '2rem auto'
   }

@@ -40,7 +40,7 @@ export const Loading = styled(LoadingComponent)({
   top: 'calc(50% + 3.25rem) !important',
 
   // 1000
-  [maxHeight(1)]: {
+  [maxHeight(2)]: {
     top: 'calc(50% + 2rem) !important'
   }
 });

@@ -1,49 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { ReactComponent as Neutral } from '../../../shared/images/trending-neutral.svg';
 import { ReactComponent as Group } from '../../../shared/images/group.svg';
-import { createRangeAverage } from '../../../shared/utility/utility';
-import AppContext from '../../../state/App/AppContext';
+import Trending from '../Trending/Trending';
+import MetricBarProps from './MetricBar.types';
+import useMetricBar from './useMetricBar';
 import * as S from './MetricBar.styles';
 
-type DetailProps = {
-  maxRange: number;
-  number: string;
-};
-
-const trending = (formatNumber: number) => {
-  let message = '';
-  let icon = <Neutral />;
-
-  switch (true) {
-    case formatNumber < 50:
-      message = `FALLING`;
-      icon = <S.Falling />;
-      break;
-    case formatNumber > 50:
-      message = 'RISING';
-      icon = <S.Rising />;
-      break;
-    default:
-      message = 'NEUTRAL';
-  }
-  return [icon, message];
-};
-
-const MetricBar = ({ maxRange, number }: DetailProps) => {
-  const { appState } = useContext(AppContext);
-  const formatNumber = parseInt(number.toString(), 10) < 10 ? 0 + number : number;
-  const rangeAverage = createRangeAverage(appState.numbersArr, maxRange);
+const MetricBar = ({ maxRange, number }: MetricBarProps) => {
+  const { appState, formatNumber, rangeAverage } = useMetricBar({ maxRange, number });
 
   return (
     <S.MetricBar rgb={appState.rgb}>
-      <div>
-        {trending(parseInt(formatNumber.toString(), 10)).map((item, i) => (
-          <div key={i} className={i === 0 ? `icon-container` : `${item}`}>
-            {item}
-          </div>
-        ))}
-      </div>
+      <Trending formatNumber={formatNumber} />
       <div>
         <div className="icon-container">
           <Group />

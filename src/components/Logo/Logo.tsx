@@ -1,13 +1,12 @@
 import React, { memo } from 'react';
 
+import { year } from '../../shared/utility/utility';
 import * as S from './Logo.styles';
 
 type LogoProps = {
-  showDate?: boolean;
-  showIcon?: boolean;
+  showDate: boolean;
+  showIcon: boolean;
 };
-
-const year = () => new Date().getFullYear();
 
 const Logo = ({ showDate = true, showIcon = true }: LogoProps) => (
   <S.LogoContainer>
@@ -18,10 +17,5 @@ const Logo = ({ showDate = true, showIcon = true }: LogoProps) => (
     {showDate && `\u2003\u0040${year()}`}
   </S.LogoContainer>
 );
-
-Logo.defaultProps = {
-  showDate: true,
-  showIcon: true
-};
 
 export default memo(Logo);

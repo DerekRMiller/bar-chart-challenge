@@ -11,7 +11,7 @@ export const App = styled.div({
   textAlign: 'center',
 
   // 800
-  [maxHeight(0)]: {
+  [maxHeight(1)]: {
     padding: '10rem 4rem 2.7187rem'
   }
 });

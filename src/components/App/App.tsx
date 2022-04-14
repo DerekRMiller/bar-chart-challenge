@@ -1,59 +1,17 @@
-import React, { useEffect, useContext } from 'react';
+import React from 'react';
 
-import Nav from '../Nav/Nav';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import Button from '../Button/Button';
-import Loading from '../Loading/Loading';
 import BarChart from '../BarChart/BarChart';
+import Button from '../Button/Button';
 import Error from '../Error/Error';
-import {
-  createColorRGB,
-  getLocalStorageNumArr,
-  setLocalStorageNumArr
-} from '../../shared/utility/utility';
-import useGetData from '../../services/useGetData';
-import { setIsMounted, setShow, setNumbersArr, setRgb } from '../../state/App/AppReducer';
-import AppContext from '../../state/App/AppContext';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+import Loading from '../Loading/Loading';
+import Nav from '../Nav/Nav';
+import useApp from './useApp';
 import * as S from './App.styles';
 
 const App = () => {
-  const { appState, appDispatch } = useContext(AppContext);
-  const { refetchData, responseError } = useGetData(
-    'https://www.random.org/integers/?num=31&min=1&max=100&col=1&base=10&format=plain&rnd=new'
-  );
-  const checkLocalStorage = getLocalStorageNumArr();
-
-  useEffect(() => {
-    if (checkLocalStorage === null) {
-      appDispatch(setIsMounted(false));
-      appDispatch(setShow(false));
-      refetchData();
-
-      setTimeout(() => {
-        appDispatch(setIsMounted(true));
-        appDispatch(setShow(true));
-      }, 1100);
-    } else {
-      appDispatch(setNumbersArr(JSON.parse(checkLocalStorage)));
-    }
-  }, []);
-
-  useEffect(() => {
-    const getColorRGB = createColorRGB(appState.numbersArr);
-    appDispatch(setRgb(getColorRGB));
-    setLocalStorageNumArr(appState.numbersArr);
-  }, [appDispatch, appState.numbersArr]);
-
-  const handleClick = () => {
-    appDispatch(setShow(false));
-    setTimeout(() => {
-      refetchData();
-      setTimeout(() => {
-        appDispatch(setShow(true));
-      }, 1100);
-    }, 1100);
-  };
+  const { appState, responseError, handleClick } = useApp();
 
   return (
     <S.App className="app">

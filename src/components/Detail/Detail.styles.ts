@@ -34,13 +34,15 @@ export const ConnectionRangePercentage = styled.div({
   lineHeight: '1.5em',
   margin: '1rem auto 1.5rem',
 
-  [maxHeight(1)]: {
+  // 1000
+  [maxHeight(2)]: {
     fontSize: '2.5rem',
     fontWeight: 300,
     margin: '0.83333334rem auto 1.25rem'
   },
 
-  [maxHeight(0)]: {
+  // 800
+  [maxHeight(1)]: {
     fontSize: '2rem',
     margin: '0.66666666rem auto 1rem'
   }

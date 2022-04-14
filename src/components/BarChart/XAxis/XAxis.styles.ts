@@ -43,6 +43,11 @@ export const Scale = styled.div(({ maxRange }: ScaleProps) => ({
     border: 'none'
   },
 
+  // 1201
+  [minWidth(1)]: {
+    fontSize: '0.5625rem'
+  },
+
   // 1921
   [minWidth(2)]: {
     fontSize: '0.625rem'

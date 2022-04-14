@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 
 import Detail from '../../Detail/Detail';
-import AppContext from '../../../state/App/AppContext';
+import useBars from './useBars';
 import * as S from './Bars.styles';
 
 type BarsProps = {
@@ -9,8 +9,7 @@ type BarsProps = {
 };
 
 const Bars = ({ maxRange }: BarsProps) => {
-  const { appState } = useContext(AppContext);
-  const [showDetail, setShowDetail] = useState<null | number>(null);
+  const { appState, showDetail, setShowDetail } = useBars();
 
   return (
     <S.Bars>

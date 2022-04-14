@@ -23,7 +23,8 @@ export const InputErrorMessage = styled.div({
   textAlign: 'right',
   top: '-2rem',
 
-  [maxHeight(0)]: {
+  // 800
+  [maxHeight(1)]: {
     right: '4.5rem',
     textAlign: 'right',
     top: 0

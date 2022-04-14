@@ -1,18 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { createMonth } from '../../../shared/utility/utility';
-import AppContext from '../../../state/App/AppContext';
+import HeaderProps from './Header.types';
+import useHeader from './useHeader';
 import * as S from './Header.styles';
 
-type HeaderProps = {
-  index: number;
-  maxRange: number;
-};
-
 const Header = ({ index, maxRange }: HeaderProps) => {
-  const { appState } = useContext(AppContext);
-  const getDay = createMonth(maxRange, 1, false);
-  const dayArr = Object.keys(getDay)[index].split('-');
+  const { appState, dayArr } = useHeader({ index, maxRange });
 
   return (
     <S.Header rgb={appState.rgb}>

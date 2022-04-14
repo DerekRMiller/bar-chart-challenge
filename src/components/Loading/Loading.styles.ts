@@ -41,7 +41,7 @@ export const Loading = styled.h2({
   },
 
   // 1000
-  [maxHeight(1)]: {
+  [maxHeight(2)]: {
     fontSize: '1.125rem',
     top: 'calc(50% + 3.4375rem)',
 
