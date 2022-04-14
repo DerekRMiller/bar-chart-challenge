@@ -1,4 +1,4 @@
-# Bar Chart Challenge (v1.2)
+# Bar Chart Challenge (v1.2.1)
 
 ![screenshot](./src/shared/images/screenshot.png)
 
