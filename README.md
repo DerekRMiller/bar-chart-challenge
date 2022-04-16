@@ -1,6 +1,8 @@
-# Bar Chart Challenge (v1.2.1)
+# Bar Chart Challenge (v1.3)
 
 ![screenshot](./src/shared/images/screenshot.png)
+
+Hosted @ <https://main.d3nhlf3h5np008.amplifyapp.com/>
 
 This project was inspired by a challenge I read from a post stating one simple instruction: build a bar chart and feed it data from this endpoint: <https://www.random.org/integers/?num=200&min=1&max=10&col=1&base=10&format=plain&rnd=new>.
 
